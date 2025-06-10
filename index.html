@@ -3,29 +3,168 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Andy & Rosie Friendship</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="script.js" defer></script>
+  <title>King Andy & Queen Rosie</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(#ffe4e1, #fff);
+      color: #444;
+      text-align: center;
+    }
+    .hidden {
+      display: none;
+    }
+    #loader {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: #f0f8ff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+    .cloud-flare {
+      display: flex;
+      gap: 20px;
+    }
+    .cloud {
+      width: 60px;
+      height: 40px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 30px 0 #fff, 60px 0 #fff;
+      animation: float 2s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    header {
+      margin-top: 40px;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #ff69b4;
+      margin: 0.2em 0;
+    }
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+    .photo {
+      width: 200px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+    .photo:hover {
+      transform: scale(1.05);
+    }
+    .message {
+      font-size: 1.3em;
+      margin: 30px;
+      background: #fff8dc;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    .hearts::after {
+      content: '❤️💖💕💘💞';
+      font-size: 2em;
+      position: absolute;
+      top: -10px;
+      right: 10px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.2); opacity: 0.6; }
+    }
+    .unlock input {
+      padding: 10px;
+      border: 2px solid pink;
+      border-radius: 10px;
+    }
+    .unlock button {
+      margin-left: 10px;
+      padding: 10px;
+      border: none;
+      background: hotpink;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
+  <audio autoplay loop>
+    <source src="love-song.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
   <div id="loader">
-    <div class="cloud"></div>
-    <h1>Loading our beautiful friendship...</h1>
+    <div class="cloud-flare">
+      <div class="cloud puff1"></div>
+      <div class="cloud puff2"></div>
+      <div class="cloud puff3"></div>
+    </div>
+    <h1>Preparing the cloud of best friendship...</h1>
   </div>
 
   <main class="content hidden">
     <header>
-      <h1>🌸 Andy & Rosie 🌸</h1>
-      <p>Best friends forever 💕</p>
+      <h1>👑 King Andy & Queen Rosie 👑</h1>
+      <p>Forever Best Friends — Our Bond is Royal 💫</p>
     </header>
+
     <section class="gallery">
-      <img src="andy.jpg" alt="Andy" class="photo" />
-      <img src="rosie.jpg" alt="Rosie" class="photo" />
-      <img src="us-together.jpg" alt="Andy and Rosie" class="photo" />
+      <img src="andy.jpg" alt="King Andy" class="photo" />
+      <img src="rosie.jpg" alt="Queen Rosie" class="photo" />
+      <img src="us-together.jpg" alt="Royal Duo" class="photo" />
     </section>
-    <section class="message">
-      <p>From silly laughs to deep talks, we’ve been through it all. Love you, Rosie! 💖</p>
+
+    <section class="message hearts">
+      <p>From day one, we've been the best of friends 👑💖</p>
+      <p>This website is just for us. Private, playful, and full of memories.</p>
+    </section>
+
+    <section class="private-texts">
+      <h2>💌 Private Texts 💌</h2>
+      <p><strong>Andy:</strong> I still remember the day I first called you my best friend. You’re always there for me.</p>
+      <p><strong>Rosie:</strong> You're my favorite person, my forever buddy 💗</p>
+    </section>
+
+    <section class="unlock">
+      <h2>🔐 Secret Message</h2>
+      <input type="password" id="secretCode" placeholder="Enter our friend code" />
+      <button onclick="revealSecret()">Unlock</button>
+      <p id="secretMessage" style="display:none; color: hotpink; font-weight: bold;">I have a crush on you too... but our friendship means everything ❤️</p>
     </section>
   </main>
+
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loader').style.display = 'none';
+        document.querySelector('.content').classList.remove('hidden');
+      }, 3000);
+    });
+
+    function revealSecret() {
+      const input = document.getElementById('secretCode').value;
+      if (input === 'ilovejesus') {
+        document.getElementById('secretMessage').style.display = 'block';
+      } else {
+        alert('Wrong code! Try again 💬');
+      }
+    }
+  </script>
 </body>
 </html>
