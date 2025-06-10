@@ -156,7 +156,7 @@
       <h2>🔐 Secret Message</h2>
       <input type="password" id="secretCode" placeholder="Enter our friend code" />
       <button onclick="revealSecret()">Unlock</button>
-      <p id="secretMessage" style="display:none; color: hotpink; font-weight: bold;">I have a crush on you too... but our friendship means everything ❤️</p>
+      <p id="secretMessage" style="display:none; color: hotpink; font-weight: bold;">Wanna be girlfriend and boyfriend and keep this as a secret?</p>
     </section>
   </main>
 
@@ -170,7 +170,7 @@
 
     function revealSecret() {
       const input = document.getElementById('secretCode').value;
-      if (input === 'iloveu') {
+      if (input === 'Rosie Has A Gyatt') {
         document.getElementById('secretMessage').style.display = 'block';
       } else {
         alert('Wrong code! Try again 💬');
