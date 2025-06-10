@@ -101,10 +101,20 @@
       border-radius: 10px;
       cursor: pointer;
     }
+    .music-button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
-  <audio autoplay loop>
+  <audio id="bgMusic" loop>
     <source src="love-song.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
@@ -122,6 +132,7 @@
     <header>
       <h1>👑 King Andy & Queen Rosie 👑</h1>
       <p>Forever Best Friends — Our Bond is Royal 💫</p>
+      <button class="music-button" onclick="playMusic()">🎵 Play Music</button>
     </header>
 
     <section class="gallery">
@@ -159,11 +170,16 @@
 
     function revealSecret() {
       const input = document.getElementById('secretCode').value;
-      if (input === 'ilovejesus') {
+      if (input === 'iloveu') {
         document.getElementById('secretMessage').style.display = 'block';
       } else {
         alert('Wrong code! Try again 💬');
       }
+    }
+
+    function playMusic() {
+      const music = document.getElementById('bgMusic');
+      music.play();
     }
   </script>
 </body>
